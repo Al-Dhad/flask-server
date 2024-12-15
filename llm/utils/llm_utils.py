@@ -1,3 +1,5 @@
+from utils.config.game_base_prompts import game_base_prompts
+
 def description_prompt_builder_from_response(response):
     return f"""I'm am a person and for the past few days, I've been experiencing {response["disease"]}, 
     that increased on my skin, describe this illness for me ? in 700 characters max"""
@@ -36,3 +38,6 @@ def prompt_builder_for_tip():
 
 def prompt_builder_for_tip_detail(tip):
     return f"""Given this tip: {tip}, detail it more in 600 characters maximum"""
+
+def build_prompt_for_game(game_id):
+    return game_base_prompts[game_id] 
