@@ -16,16 +16,14 @@ class MatchGame(BaseGame):
         self.goal_tag = self.tags[goal_tag]
         self.seed_pieces = []
         
-        self._BaseGame__build_prompt()
-        
-    def _BaseGame__build_prompt(self):
-        self._BaseGame__load_seed_pieces()
+    def _BaseGame__build_prompt(self, level=1, module=1):
+        self._BaseGame__load_seed_pieces(level, module)
         self._BaseGame__prepare_prompt_salt()
         self._BaseGame__prepare_prompt_task()
         self._BaseGame__prepare_prompt_task_notices()
         self._BaseGame__prepare_prompt_pepper()
     
-    def _BaseGame__load_seed_pieces(self):
+    def _BaseGame__load_seed_pieces(self, level, module):
         # normally, we would load those from the DB
         self.seed_pieces =  ["تهوى", "تنظيم", "الوفي", "نجح"]
             

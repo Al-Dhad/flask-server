@@ -6,11 +6,11 @@ class BaseGame(ABC):
         self.prompt = ""
     
     @abstractmethod
-    def __build_prompt(self):
+    def __build_prompt(self, level, module):
         pass
     
     @abstractmethod
-    def __load_seed_pieces(self):
+    def __load_seed_pieces(self, level, module):
         pass
 
     @abstractmethod

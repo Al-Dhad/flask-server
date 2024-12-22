@@ -24,16 +24,15 @@ class OrderGame(BaseGame):
         self.seed_tag = self.tags[self.type]
         self.goal_tag = self.goal_tags[self.type]
         
-        self._BaseGame__build_prompt()
+    def _BaseGame__build_prompt(self, level, module):
+        self._BaseGame__load_seed_pieces(level, module)
         
-    def _BaseGame__build_prompt(self):
-        self._BaseGame__load_seed_pieces()
         self._BaseGame__prepare_prompt_salt()
         self._BaseGame__prepare_prompt_task()
         self._BaseGame__prepare_prompt_task_notices()
         self._BaseGame__prepare_prompt_pepper()
     
-    def _BaseGame__load_seed_pieces(self):
+    def _BaseGame__load_seed_pieces(self, level, module):
         # normally, we would load those from the DB
         if self.type == 1:
             self.seed_pieces =  ["قرأ", "بصمت", "الكتاب", "الأب"]
