@@ -40,7 +40,7 @@ class OrderGame(BaseGame):
             self.seed_pieces =  ["ت", "ق", "ل", "ب", "م"]
             
     def _BaseGame__prepare_prompt_salt(self):
-        self.prompt += f"Given those arabic {self.seed_tag}: {", ".join(self.seed_pieces)}. "
+        self.prompt += f"Given those arabic {self.seed_tag}: {', '.join(self.seed_pieces)}. "
    
     def _BaseGame__prepare_prompt_task(self):
         self.prompt += f"You are asked to generate a set of meaningful {self.goal_tag}s that can be formed out of those {self.seed_tag}. "

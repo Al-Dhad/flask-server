@@ -28,7 +28,7 @@ class MatchGame(BaseGame):
         self.seed_pieces =  ["تهوى", "تنظيم", "الوفي", "نجح"]
             
     def _BaseGame__prepare_prompt_salt(self):
-        self.prompt += f"Given those arabic words: {", ".join(self.seed_pieces)}. "
+        self.prompt += f"Given those arabic words: {', '.join(self.seed_pieces)}. "
    
     def _BaseGame__prepare_prompt_task(self):
         self.prompt += f"You are asked to generate a single {self.goal_tag} for each of those words. "

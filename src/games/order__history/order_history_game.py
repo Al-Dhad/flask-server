@@ -23,7 +23,7 @@ class OrderHistoricalGame(BaseGame):
         self.seed_pieces =  ["november 1954", "july 1962", "july 1830"]
             
     def _BaseGame__prepare_prompt_salt(self):
-        self.prompt += f"Given those Algerian historical events: {", ".join(self.seed_pieces)}. "
+        self.prompt += f"Given those Algerian historical events: {', '.join(self.seed_pieces)}. "
    
     def _BaseGame__prepare_prompt_task(self):
         self.prompt += f"You are asked to order those events, while giving a brief explanation to what happened in each event in arabic. "
