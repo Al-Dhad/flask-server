@@ -9,11 +9,7 @@ from utils.config.get_hgf_pass import getpass
 from utils.config.llm_config import llm_config, llama_config
 from utils.config.output_formatter import repair_json
 
-HUGGINGFACEHUB_API_TOKEN = "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"
-
-REPLICATE_API_TOKEN = "r8_AMUSGg6NxdlUqkek00rIzmbaACVDkQZ1cekI2"
-os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
-
+HUGGINGFACEHUB_API_TOKEN = ""
 
 def ask_llm(question):
     prompt = PromptTemplate.from_template(llm_config["template"])
