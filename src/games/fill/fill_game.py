@@ -33,7 +33,7 @@ class FillGame(BaseGame):
         self.prompt += f"Given those arabic words: {', '.join(self.seed_pieces)}. "
 
     def _BaseGame__prepare_prompt_task(self):
-        self.prompt += f"You are asked to generate a sentence that uses those words: {", ".join(self.seed_pieces)}. "
+        self.prompt += f"You are asked to generate a sentence that uses those words: {', '.join(self.seed_pieces)}. "
 
     def _BaseGame__prepare_prompt_task_notices(self):
         self.prompt += f"Please note the following: you cannot use the same word twice. You shall return a SINGLE and MEANINGFUL sentence and it should be in ARABIC. And You shall return the JSON ONLY "

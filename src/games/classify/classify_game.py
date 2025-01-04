@@ -28,7 +28,7 @@ class ClassifyGame(BaseGame):
         self.prompt += f"Given those arabic words: {', '.join(self.seed_pieces)}. "
    
     def _BaseGame__prepare_prompt_task(self):
-        self.prompt += f"You are asked to classify them into the following set of classes: ${", ".join(self.seed_classes)}. "
+        self.prompt += f"You are asked to classify them into the following set of classes: ${', '.join(self.seed_classes)}. "
     
     def _BaseGame__prepare_prompt_task_notices(self):
         self.prompt += f"Please note the following: you cannot classify the same word in more than once class. And make sure to use both classes in your output. "        
