@@ -1,6 +1,6 @@
 from flask import jsonify, Flask, request, make_response
 
-from utils.llama_handler import llm_query_handler
+from utils.llama_handler import llm_query_handler, ask_llm_replicate
 
 from games.factory.game_factory import games
 
@@ -24,15 +24,16 @@ def build_game():
     game = games[game_type]
 
     game._BaseGame__build_prompt(level, module)
+    
+    print(game.prompt)
 
-    response = llm_query_handler(game.prompt)
+    response = ask_llm_replicate(game.prompt)
 
     response_data = {"llm_response": response}
     if hasattr(game, "seed_pieces"):
         response_data["seed_pieces"] = game.seed_pieces
 
     return make_response(jsonify({"data": response_data}), status["success"])
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=4000, host="0.0.0.0")

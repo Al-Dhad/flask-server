@@ -32,6 +32,6 @@ class OrderHistoricalGame(BaseGame):
         self.prompt += f"Please note the following: you cannot use the same event twice. "        
         
     def _BaseGame__prepare_prompt_pepper(self):
-        self.prompt += "Return ONLY your answer in JSON format (having the following format: {event: {date, order_indice}}) AND with no extra information or explanation (only the JSON). "
+        self.prompt += "Return ONLY your answer in JSON format (having the following format: {event_i: {date, order_indice, description}}) AND with no extra information or explanation (only the JSON). "
         
         

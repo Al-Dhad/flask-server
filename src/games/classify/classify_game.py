@@ -25,7 +25,7 @@ class ClassifyGame(BaseGame):
         self.seed_classes = ["المَكَانُ", "الزَّمَانُ"]
             
     def _BaseGame__prepare_prompt_salt(self):
-        self.prompt += f"Given those arabic words: ${", ".join(self.seed_pieces)}. "
+        self.prompt += f"Given those arabic words: {", ".join(self.seed_pieces)}. "
    
     def _BaseGame__prepare_prompt_task(self):
         self.prompt += f"You are asked to classify them into the following set of classes: ${", ".join(self.seed_classes)}. "
