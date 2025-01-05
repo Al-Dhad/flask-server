@@ -1,6 +1,7 @@
 from src.games.base_game import BaseGame
-import requests
+from src.utils.config.express_server import EXPRESS_SERVER_URL
 
+import requests
 
 class FillGame(BaseGame):
     def __init__(self):
@@ -20,7 +21,7 @@ class FillGame(BaseGame):
 
     def _BaseGame__load_seed_pieces(self, level, module):
         response = requests.get(
-            f"http://localhost:3000/api/v1/words/fill-game?level={level}&module={module}"
+            f"{EXPRESS_SERVER_URL}/api/v1/words/fill-game?level={level}&module={module}"
         )
 
         print("response", response.json().get("data", []))
