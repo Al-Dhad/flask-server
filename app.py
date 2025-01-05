@@ -7,8 +7,10 @@ from src.games.factory.game_factory import games
 from src.errors.non_formatted_input import input_non_valid_error
 from src.errors.status import status
 
-app = Flask(__name__)
+from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app)
 
 @app.route("/build-game", methods=["GET"])
 def build_game():
