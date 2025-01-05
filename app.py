@@ -1,11 +1,11 @@
 from flask import jsonify, Flask, request, make_response
 
-from utils.llama_handler import llm_query_handler, ask_llm_replicate
+from src.utils.llama_handler import llm_query_handler, ask_llm_replicate
 
-from games.factory.game_factory import games
+from src.games.factory.game_factory import games
 
-from errors.non_formatted_input import input_non_valid_error
-from errors.status import status
+from src.errors.non_formatted_input import input_non_valid_error
+from src.errors.status import status
 
 app = Flask(__name__)
 

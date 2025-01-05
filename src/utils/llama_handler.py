@@ -4,10 +4,10 @@ import os
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain_core.prompts import PromptTemplate
 
-from utils.config.get_hgf_pass import getpass
+from src.utils.config.get_hgf_pass import getpass
 
-from utils.config.llm_config import llm_config, llama_config
-from utils.config.output_formatter import repair_json
+from src.utils.config.llm_config import llm_config, llama_config
+from src.utils.config.output_formatter import repair_json
 
 HUGGINGFACEHUB_API_TOKEN = ""
 

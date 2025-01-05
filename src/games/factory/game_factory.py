@@ -1,8 +1,8 @@
-from games.order.order_game import OrderGame 
-from games.match.match_game import MatchGame
-from games.classify.classify_game import ClassifyGame
-from games.order__history.order_history_game import OrderHistoricalGame
-from games.fill.fill_game import FillGame
+from src.games.order.order_game import OrderGame 
+from src.games.match.match_game import MatchGame
+from src.games.classify.classify_game import ClassifyGame
+from src.games.order__history.order_history_game import OrderHistoricalGame
+from src.games.fill.fill_game import FillGame
 
 games = {
     "order_chars": OrderGame(type_=2),

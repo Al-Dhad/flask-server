@@ -1,4 +1,4 @@
-from games.base_game import BaseGame
+from src.games.base_game import BaseGame
 import requests
 
 
