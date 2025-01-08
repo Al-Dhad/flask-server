@@ -1,6 +1,6 @@
 from flask import jsonify, Flask, request, make_response
 
-from src.utils.llama_handler import llm_query_handler, ask_llm_replicate
+from src.utils.llama_handler import ask_llm_replicate
 
 from src.games.factory.game_factory import games
 
@@ -11,6 +11,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
 
 @app.route("/build-game", methods=["GET"])
 def build_game():
@@ -26,7 +27,7 @@ def build_game():
     game = games[game_type]
 
     game._BaseGame__build_prompt(level, module)
-    
+
     print(game.prompt)
 
     response = ask_llm_replicate(game.prompt)
@@ -36,6 +37,7 @@ def build_game():
         response_data["seed_pieces"] = game.seed_pieces
 
     return make_response(jsonify({"data": response_data}), status["success"])
+
 
 # if __name__ == "__main__":
 app.run(debug=False, port=10000, host="0.0.0.0")
