@@ -11,7 +11,7 @@ from src.utils.config.output_formatter import repair_json
 
 HUGGINGFACEHUB_API_TOKEN = ""
 
-os.environ['REPLICATE_API_TOKEN'] = "r8_7KTpIRxajWTGxOMPAeodSeCl4xRrfkp4LxJYS"
+os.environ['REPLICATE_API_TOKEN'] = ""
 
 
 def ask_llm(question):
