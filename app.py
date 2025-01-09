@@ -40,4 +40,4 @@ def build_game():
 
 
 # if __name__ == "__main__":
-app.run(debug=False, port=10000, host="0.0.0.0")
+app.run(debug=False, port=4000, host="0.0.0.0")

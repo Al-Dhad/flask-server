@@ -1,11 +1,23 @@
 from src.games.base_game import BaseGame
 from src.utils.mapping import module_mapping
+from src.utils.retrieve_passages import fetch_retrieved_passages
 
 
 class FindGame(BaseGame):
     example = {
-        "question": "تُعد قارة أكبر قارات العالم من حيث المساحة والسكان.",
-        "answer": "آسيا",
+        "2": {"question": "ما هو عام استقلال الجزائر؟", "answer": "1962"},
+        "4": {
+            "question": "ما هي الوحدة الأساسية في بناء الكائنات الحية؟",
+            "answer": "الخلية",
+        },
+        "5": {
+            "question": "تُعد قارة أكبر قارات العالم من حيث المساحة والسكان.",
+            "answer": "آسيا",
+        },
+        "6": {
+            "question": "تُعد الشركة التي اخترعت نظام التشغيل Windows من أكبر شركات التكنولوجيا في العالم.",
+            "answer": "مايكروسوفت",
+        },
     }
 
     def __init__(self):
@@ -30,6 +42,17 @@ class FindGame(BaseGame):
         self.level = level
         self.module = module
 
+        if self.module in self.example.keys():
+            self.retrieved_passages = fetch_retrieved_passages(self.level, self.module)
+
+            self.prompt += """Given the following passages: 
+            
+            """
+            for passage in self.retrieved_passages:
+                self.prompt += f""" {passage}.
+                
+                """
+
     def _BaseGame__prepare_prompt_salt(self):
         self.prompt += f"Given those arabic words: {', '.join(self.seed_pieces)}. "
 
@@ -48,12 +71,11 @@ class FindGame(BaseGame):
         self.prepare_outro()
 
     def perpare_intro(self):
-        self.prompt += f"""Given the following question: {self.example['question']}?, an example answer in JSON format is: {self.example['answer']}.
+        self.prompt += f"""Given the following question: {self.example[self.module]['question']}?, an example answer in JSON format is: {self.example[self.module]}.
         
         """
 
     def prepare_body(self):
-        
         print(self.module)
         self.prompt += f"""You are asked to do the same for a question of your choice in {module_mapping[self.module]}. 
         
