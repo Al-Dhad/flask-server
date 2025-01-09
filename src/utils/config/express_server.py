@@ -1,1 +1,1 @@
-EXPRESS_SERVER_URL = 'https://dhad-express-server.onrender.com'
+EXPRESS_SERVER_URL = 'http://localhost:10000'
