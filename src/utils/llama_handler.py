@@ -13,6 +13,8 @@ HUGGINGFACEHUB_API_TOKEN = ""
 
 os.environ['REPLICATE_API_TOKEN'] = ""
 
+# add retrived passages for other games
+
 
 def ask_llm(question):
     prompt = PromptTemplate.from_template(llm_config["template"])
